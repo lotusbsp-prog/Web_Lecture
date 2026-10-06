@@ -1,0 +1,50 @@
+.wrap {
+    width: 800px;
+    margin: 50px auto;
+}
+
+header {
+    overflow: hidden;
+    border-bottom: 1px solid black;
+}
+
+header h2 {
+    float: left;
+}
+
+nav {
+    float: right;
+    margin-top: 25px;
+}
+
+nav div {
+    float: left;
+    margin-left: 25px;
+}
+
+main {
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+section {
+    float: left;
+    width: 480px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+aside {
+    float: right;
+    width: 200px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+footer {
+    clear: both;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid black;
+}

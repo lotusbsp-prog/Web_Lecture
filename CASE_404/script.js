@@ -113,3 +113,42 @@ document.getElementById("logout-button").addEventListener("click", function() {
     clearTimeout(loadingTimeout);
 
 });
+
+
+/* ===================================
+   관리자 페이지 메뉴 전환
+=================================== */
+
+// 모든 메뉴 버튼 가져오기
+const menuButtons = document.querySelectorAll(".menu-btn");
+
+// 모든 관리자 페이지 가져오기
+const contentPages = document.querySelectorAll(".content-page");
+
+/* 메뉴 클릭 이벤트 */
+menuButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        // 선택한 메뉴의 페이지 이름
+        const pageName = button.getAttribute("data-page");
+
+        // 모든 페이지 숨기기
+        contentPages.forEach(function(page) {
+            page.style.display = "none";
+        });
+
+        // 선택한 페이지 표시
+        document.getElementById(pageName + "-page").style.display = "block";
+
+        // 모든 메뉴 선택 효과 제거
+        menuButtons.forEach(function(menu) {
+            menu.classList.remove("active");
+        });
+
+        // 현재 메뉴 선택 효과 적용
+        button.classList.add("active");
+
+    });
+
+});

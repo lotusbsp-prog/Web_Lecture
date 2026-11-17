@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CASE 404 | NEXUS 관리자 시스템</title>
+
+    <!-- CSS 연결 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 로그인 화면 -->
+    <div id="login-page">
+
+        <div class="login-container">
+
+            <!-- 회사 로고 및 이름 -->
+            <header class="login-header">
+                <h1>NEXUS</h1>
+                <p>Technologies Management System</p>
+            </header>
+
+            <!-- 로그인 영역 -->
+            <section class="login-box">
+                <h2>관리자 로그인</h2>
+                <p>사내 통합 관리 시스템에 접속합니다.</p>
+
+                <!-- 로그인 입력 양식 -->
+                <form id="login-form">
+
+                    <!-- 닉네임 입력 -->
+                    <label for="username">사원ID</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="사용할 닉네임을 입력하세요"
+                        required
+                    >
+
+                    <!-- 비밀번호 입력 -->
+                    <label for="password">비밀번호</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="비밀번호를 입력하세요"
+                        required
+                    >
+
+                    <!-- 로그인 오류 메시지 -->
+                    <p id="login-error"></p>
+
+                    <!-- 로그인 버튼 -->
+                    <button type="submit">로그인</button>
+
+                </form>
+            </section>
+
+            <!-- 하단 회사 정보 -->
+            <footer class="login-footer">
+                <p>© 2026 NEXUS Technologies</p>
+                <p>Authorized Personnel Only</p>
+            </footer>
+
+        </div>
+
+    </div>
+
+    <!-- 관리자 페이지 (추후 구현) -->
+    <div id="admin-page" style="display: none;">
+
+    </div>
+
+    <!-- JavaScript 연결 -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

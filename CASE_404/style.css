@@ -1,0 +1,130 @@
+
+/* 전체 페이지 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 페이지 배경 및 글꼴 */
+body {
+    font-family: Arial, sans-serif;
+    background: #edf1f5;
+    color: #263445;
+}
+
+/* 로그인 화면 */
+#login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #14243a, #304d70);
+}
+
+/* 로그인 전체 영역 */
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+/* 회사 로고 및 이름 */
+.login-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    font-size: 42px;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    font-size: 13px;
+    color: #c4d1e0;
+}
+
+/* 로그인 박스 */
+.login-box {
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+.login-box h2 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.login-box > p {
+    font-size: 13px;
+    color: #788595;
+    margin-bottom: 30px;
+}
+
+/* 로그인 입력 양식 */
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* ID 및 비밀번호 입력창 */
+#login-form input {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 20px;
+    border: 1px solid #cdd5df;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* 입력창 선택 효과 */
+#login-form input:focus {
+    outline: none;
+    border-color: #3569a4;
+}
+
+/* 로그인 오류 메시지 */
+#login-error {
+    color: #d93636;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* 로그인 버튼 */
+#login-form button {
+    padding: 14px;
+    background: #245b99;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* 버튼에 마우스를 올렸을 때 */
+#login-form button:hover {
+    background: #194777;
+}
+
+/* 하단 회사 정보 */
+.login-footer {
+    margin-top: 25px;
+    text-align: center;
+    color: #b3c0d0;
+    font-size: 12px;
+}
+
+.login-footer p {
+    margin-bottom: 5px;
+}

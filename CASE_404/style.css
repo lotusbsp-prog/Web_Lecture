@@ -128,3 +128,32 @@ body {
 .login-footer p {
     margin-bottom: 5px;
 }
+
+
+/* 관리자 시스템 접속 로딩 화면 */
+#loading-page {
+    min-height: 100vh;
+    background: #14243a;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* 로딩 메시지 영역 */
+.loading-container {
+    padding: 30px;
+}
+
+/* 환영 메시지 */
+#loading-welcome {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* 접속 진행 메시지 */
+#loading-message {
+    font-size: 16px;
+    color: #aabed6;
+}
+ㄴ

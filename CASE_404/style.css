@@ -387,3 +387,144 @@ body {
         flex: 1 1 40%;
     }
 }
+
+
+/* ===================================
+   직원 관리 페이지
+=================================== */
+
+/* 직원 관리 박스 */
+.employee-box {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e5ec;
+    border-radius: 8px;
+}
+
+.employee-box h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* 직원 검색 영역 */
+.employee-search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* 검색 입력창 */
+.employee-search input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #cdd5df;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* 부서 선택 */
+.employee-search select {
+    padding: 12px;
+    border: 1px solid #cdd5df;
+    border-radius: 5px;
+    background: white;
+}
+
+/* 검색 초기화 버튼 */
+#employee-reset {
+    padding: 12px 20px;
+    background: #526780;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#employee-reset:hover {
+    background: #394b63;
+}
+
+/* 검색 결과 안내 */
+#employee-count {
+    font-size: 13px;
+    color: #788595;
+}
+
+/* 직원 목록 테이블 */
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.employee-table th,
+.employee-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e6eaf0;
+    text-align: left;
+}
+
+.employee-table th {
+    background: #f4f6f9;
+    color: #526174;
+}
+
+/* 직원 행 마우스 효과 */
+.employee-table tbody tr:hover {
+    background: #f5f8fc;
+}
+
+/* 재직 및 비활성 상태 */
+.status-active {
+    color: #23834c;
+    font-weight: bold;
+}
+
+.status-inactive {
+    color: #b35b34;
+    font-weight: bold;
+}
+
+/* 상세정보 버튼 */
+.detail-btn {
+    padding: 8px 14px;
+    background: #345f96;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.detail-btn:hover {
+    background: #244875;
+}
+
+/* 직원 상세정보 */
+#employee-detail-content p {
+    padding: 10px 0;
+    border-bottom: 1px solid #e6eaf0;
+    font-size: 14px;
+}
+
+/* 상세정보 닫기 버튼 */
+#detail-close {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #526780;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 좁은 화면 검색창 정렬 */
+@media (max-width: 800px) {
+    .employee-search {
+        flex-direction: column;
+    }
+
+    .employee-box {
+        overflow-x: auto;
+    }
+}

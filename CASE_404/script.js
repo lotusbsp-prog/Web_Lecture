@@ -152,3 +152,185 @@ menuButtons.forEach(function(button) {
     });
 
 });
+
+
+/* ===================================
+   직원 관리 기능
+=================================== */
+
+/* HTML 요소 가져오기 */
+const employeeList = document.getElementById("employee-list");
+const employeeSearch = document.getElementById("employee-search-input");
+const departmentFilter = document.getElementById("department-filter");
+const employeeCount = document.getElementById("employee-count");
+const employeeDetail = document.getElementById("employee-detail");
+const detailContent = document.getElementById("employee-detail-content");
+
+/* 직원 목록 표시 */
+function showEmployees() {
+
+    // 검색어 및 선택 부서
+    const keyword = employeeSearch.value.trim().toLowerCase();
+    const department = departmentFilter.value;
+
+    // 검색 조건에 맞는 직원 찾기
+    const result = employees.filter(function(employee) {
+
+        const matchName =
+            employee.name.toLowerCase().includes(keyword);
+
+        const matchId =
+            employee.id.toLowerCase().includes(keyword);
+
+        const matchDepartment =
+            department === "전체" ||
+            employee.department === department;
+
+        return (matchName || matchId) && matchDepartment;
+    });
+
+    // 기존 목록 초기화
+    employeeList.innerHTML = "";
+
+    // 검색 결과 개수 출력
+    employeeCount.textContent =
+        "검색 결과: " + result.length + "명";
+
+    // 검색 결과가 없는 경우
+    if (result.length === 0) {
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+
+        cell.colSpan = 6;
+        cell.textContent = "검색 결과가 없습니다.";
+
+        row.appendChild(cell);
+        employeeList.appendChild(row);
+        return;
+    }
+
+    // 직원 목록 생성
+    result.forEach(function(employee) {
+
+        const row = document.createElement("tr");
+
+        // 직원 기본정보
+        const values = [
+            employee.id,
+            employee.name,
+            employee.department,
+            employee.position
+        ];
+
+        values.forEach(function(value) {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+
+        // 재직 상태
+        const statusCell = document.createElement("td");
+        statusCell.textContent = employee.status;
+
+        if (employee.status === "재직") {
+            statusCell.className = "status-active";
+        } else {
+            statusCell.className = "status-inactive";
+        }
+
+        row.appendChild(statusCell);
+
+        // 상세정보 버튼
+        const buttonCell = document.createElement("td");
+        const button = document.createElement("button");
+
+        button.textContent = "조회";
+        button.className = "detail-btn";
+
+        button.addEventListener("click", function() {
+            showEmployeeDetail(employee.id);
+        });
+
+        buttonCell.appendChild(button);
+        row.appendChild(buttonCell);
+
+        employeeList.appendChild(row);
+    });
+}
+
+/* 직원 상세정보 표시 */
+function showEmployeeDetail(employeeId) {
+
+    // 사번으로 직원 찾기
+    const employee = employees.find(function(item) {
+        return item.id === employeeId;
+    });
+
+    if (!employee) {
+        return;
+    }
+
+    // 기존 상세정보 초기화
+    detailContent.innerHTML = "";
+
+    // 상세정보 항목
+    const information = [
+        ["사번", employee.id],
+        ["이름", employee.name],
+        ["부서", employee.department],
+        ["직급", employee.position],
+        ["재직 상태", employee.status],
+        ["이메일", employee.email],
+        ["입사일", employee.joinDate]
+    ];
+
+    // 상세정보 화면 생성
+    information.forEach(function(item) {
+
+        const paragraph = document.createElement("p");
+
+        paragraph.textContent =
+            item[0] + " : " + item[1];
+
+        detailContent.appendChild(paragraph);
+    });
+
+    // 상세정보 영역 표시
+    employeeDetail.style.display = "block";
+
+    // 상세정보 위치로 이동
+    employeeDetail.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+}
+
+/* 직원 검색 */
+employeeSearch.addEventListener("input", function() {
+    showEmployees();
+    employeeDetail.style.display = "none";
+});
+
+/* 부서 필터 */
+departmentFilter.addEventListener("change", function() {
+    showEmployees();
+    employeeDetail.style.display = "none";
+});
+
+/* 검색 초기화 */
+document.getElementById("employee-reset").addEventListener("click", function() {
+
+    employeeSearch.value = "";
+    departmentFilter.value = "전체";
+
+    employeeDetail.style.display = "none";
+    showEmployees();
+});
+
+/* 상세정보 닫기 */
+document.getElementById("detail-close").addEventListener("click", function() {
+    employeeDetail.style.display = "none";
+});
+
+/* 초기 직원 목록 출력 */
+showEmployees();

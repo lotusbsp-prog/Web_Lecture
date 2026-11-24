@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Basic</title>
+
+    <script>
+        window.onload = function() {
+            let output = '';
+
+            for (let i = 0; i < 10; i++) {
+                output += '<h1>Header - ' + i + '</h1>';
+            }
+
+            // document.body.textContent = output;
+            document.body.innerHTML = output;
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

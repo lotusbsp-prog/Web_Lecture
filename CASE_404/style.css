@@ -528,3 +528,153 @@ body {
         overflow-x: auto;
     }
 }
+
+
+/* ===================================
+   출입 기록 관리 페이지
+=================================== */
+
+/* 출입 기록 박스 */
+.access-box {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e5ec;
+    border-radius: 8px;
+}
+
+.access-box h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* 출입 기록 검색 영역 */
+.access-search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.access-search input,
+.access-search select {
+    padding: 12px;
+    border: 1px solid #cdd5df;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+}
+
+#access-search-input {
+    flex: 1;
+    min-width: 140px;
+}
+
+/* 검색 초기화 버튼 */
+#access-reset {
+    padding: 12px 20px;
+    background: #526780;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#access-reset:hover {
+    background: #394b63;
+}
+
+/* 검색 결과 개수 */
+#access-count {
+    font-size: 13px;
+    color: #788595;
+}
+
+/* 출입 기록 테이블 */
+.access-table-wrap {
+    overflow-x: auto;
+}
+
+.access-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.access-table th,
+.access-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e6eaf0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.access-table th {
+    background: #f4f6f9;
+    color: #526174;
+}
+
+.access-table tbody tr:hover {
+    background: #f5f8fc;
+}
+
+/* 입실 및 퇴실 표시 */
+.access-in {
+    color: #23834c;
+    font-weight: bold;
+}
+
+.access-out {
+    color: #526780;
+    font-weight: bold;
+}
+
+/* 이상 기록 표시 */
+.access-suspicious {
+    background: #fff8ed;
+    cursor: pointer;
+}
+
+.access-suspicious:hover {
+    background: #fff0d7 !important;
+}
+
+/* 이상 기록 안내 박스 */
+.access-warning {
+    background: #fff8ed;
+    border: 1px solid #e8c58d;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.access-warning h3 {
+    color: #975b20;
+    margin-bottom: 15px;
+}
+
+.access-warning p {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* 확인 버튼 */
+#access-warning-close {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #975b20;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 좁은 화면 */
+@media (max-width: 1000px) {
+    .access-search {
+        flex-wrap: wrap;
+    }
+
+    #access-search-input {
+        flex-basis: 100%;
+    }
+}

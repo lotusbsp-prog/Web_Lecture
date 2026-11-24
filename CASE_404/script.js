@@ -334,3 +334,193 @@ document.getElementById("detail-close").addEventListener("click", function() {
 
 /* 초기 직원 목록 출력 */
 showEmployees();
+
+
+/* ===================================
+   출입 기록 관리 기능
+=================================== */
+
+/* HTML 요소 가져오기 */
+const accessList = document.getElementById("access-list");
+const accessSearch = document.getElementById("access-search-input");
+const accessDate = document.getElementById("access-date");
+const accessType = document.getElementById("access-type");
+const accessCount = document.getElementById("access-count");
+const accessWarning = document.getElementById("access-warning");
+const accessWarningMessage = document.getElementById("access-warning-message");
+
+/* 출입 기록 목록 표시 */
+function showAccessRecords() {
+
+    // 검색 조건 가져오기
+    const keyword = accessSearch.value.trim().toLowerCase();
+    const date = accessDate.value;
+    const type = accessType.value;
+
+    // 검색 조건에 맞는 기록 찾기
+    const result = accessRecords.filter(function(record) {
+
+        // 사번으로 직원 정보 찾기
+        const employee = employees.find(function(item) {
+            return item.id === record.employeeId;
+        });
+
+        const employeeName = employee ? employee.name : "알 수 없음";
+
+        // 이름 또는 사번 검색
+        const matchKeyword =
+            employeeName.toLowerCase().includes(keyword) ||
+            record.employeeId.toLowerCase().includes(keyword);
+
+        // 날짜 검색
+        const matchDate =
+            date === "" || record.date === date;
+
+        // 출입 유형 검색
+        const matchType =
+            type === "전체" || record.type === type;
+
+        return matchKeyword && matchDate && matchType;
+    });
+
+    // 기존 목록 초기화
+    accessList.innerHTML = "";
+
+    // 검색 결과 표시
+    accessCount.textContent =
+        "검색 결과: " + result.length + "건";
+
+    // 기록이 없는 경우
+    if (result.length === 0) {
+
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+
+        cell.colSpan = 7;
+        cell.textContent = "검색 결과가 없습니다.";
+
+        row.appendChild(cell);
+        accessList.appendChild(row);
+
+        return;
+    }
+
+    // 검색 결과로 테이블 생성
+    result.forEach(function(record) {
+
+        const employee = employees.find(function(item) {
+            return item.id === record.employeeId;
+        });
+
+        const employeeName = employee ? employee.name : "알 수 없음";
+
+        const row = document.createElement("tr");
+
+        // 출입 기록 항목
+        const values = [
+            record.id,
+            record.date,
+            record.time,
+            record.employeeId,
+            employeeName,
+            record.location,
+            record.type
+        ];
+
+        values.forEach(function(value, index) {
+
+            const cell = document.createElement("td");
+            cell.textContent = value;
+
+            // 입실과 퇴실 글자색 변경
+            if (index === 6) {
+                cell.className =
+                    record.type === "입실" ? "access-in" : "access-out";
+            }
+
+            row.appendChild(cell);
+        });
+
+        // 비활성 직원의 출입 기록 확인
+        if (employee && employee.status === "비활성") {
+
+            row.classList.add("access-suspicious");
+            row.title = "기록 확인이 필요합니다.";
+
+            // 기록을 클릭하면 안내 표시
+            row.addEventListener("click", function() {
+                showAccessWarning(record, employee);
+            });
+        }
+
+        accessList.appendChild(row);
+    });
+}
+
+/* 이상 출입 기록 확인 */
+function showAccessWarning(record, employee) {
+
+    accessWarningMessage.textContent =
+        employee.name + " (" + employee.id + ") 계정은 " +
+        "현재 비활성 상태입니다. " +
+        "하지만 " + record.date + " " + record.time +
+        "에 " + record.location +
+        " 출입 기록이 확인되었습니다. " +
+        "해당 기록의 확인이 필요합니다.";
+
+    // 안내 표시
+    accessWarning.style.display = "block";
+
+    // 안내 영역으로 이동
+    accessWarning.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
+}
+
+/* 직원 이름 및 사번 검색 */
+accessSearch.addEventListener("input", function() {
+
+    accessWarning.style.display = "none";
+    showAccessRecords();
+
+});
+
+/* 날짜 검색 */
+accessDate.addEventListener("change", function() {
+
+    accessWarning.style.display = "none";
+    showAccessRecords();
+
+});
+
+/* 출입 유형 필터 */
+accessType.addEventListener("change", function() {
+
+    accessWarning.style.display = "none";
+    showAccessRecords();
+
+});
+
+/* 검색 초기화 */
+document.getElementById("access-reset").addEventListener("click", function() {
+
+    accessSearch.value = "";
+    accessDate.value = "";
+    accessType.value = "전체";
+
+    accessWarning.style.display = "none";
+
+    showAccessRecords();
+
+});
+
+/* 이상 기록 안내 닫기 */
+document.getElementById("access-warning-close").addEventListener("click", function() {
+
+    accessWarning.style.display = "none";
+
+});
+
+/* 초기 출입 기록 출력 */
+showAccessRecords();

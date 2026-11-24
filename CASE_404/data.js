@@ -77,3 +77,91 @@ const employees = [
         joinDate: "2020-08-24"
     }
 ];
+
+
+/* ===================================
+   회사 출입 기록 데이터
+=================================== */
+
+const accessRecords = [
+    {
+        id: "LOG-001",
+        employeeId: "EMP-001",
+        date: "2026-11-15",
+        time: "18:20",
+        location: "본관 1층",
+        type: "퇴실"
+    },
+    {
+        id: "LOG-002",
+        employeeId: "EMP-002",
+        date: "2026-11-15",
+        time: "20:47",
+        location: "본관 1층",
+        type: "퇴실"
+    },
+    {
+        id: "LOG-003",
+        employeeId: "EMP-003",
+        date: "2026-11-15",
+        time: "21:14",
+        location: "본관 1층",
+        type: "퇴실"
+    },
+    {
+        id: "LOG-004",
+        employeeId: "EMP-004",
+        date: "2026-11-15",
+        time: "21:32",
+        location: "보안 통제실",
+        type: "입실"
+    },
+    {
+        id: "LOG-005",
+        employeeId: "EMP-005",
+        date: "2026-11-15",
+        time: "19:05",
+        location: "본관 1층",
+        type: "퇴실"
+    },
+    {
+        id: "LOG-006",
+        employeeId: "EMP-006",
+        date: "2026-11-15",
+        time: "20:10",
+        location: "본관 1층",
+        type: "퇴실"
+    },
+    {
+        id: "LOG-007",
+        employeeId: "EMP-007",
+        date: "2026-11-15",
+        time: "22:03",
+        location: "보안 통제실",
+        type: "퇴실"
+    },
+    {
+        id: "LOG-008",
+        employeeId: "EMP-047",
+        date: "2026-11-15",
+        time: "23:47",
+        location: "연구동 3층",
+        type: "입실"
+    },
+    {
+        id: "LOG-009",
+        employeeId: "EMP-047",
+        date: "2026-11-16",
+        time: "02:17",
+        location: "서버실",
+        type: "입실"
+    },
+    {
+        id: "LOG-010",
+        employeeId: "EMP-003",
+        date: "2026-11-16",
+        time: "00:12",
+        location: "연구동 3층",
+        type: "입실"
+    }
+];

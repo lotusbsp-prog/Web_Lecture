@@ -1,0 +1,177 @@
+/* 기본 설정 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, 'Malgun Gothic', sans-serif; background: #f1f4f8; color: #263445; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+
+/* 로그인 화면 */
+#login-page { min-height: 100vh; background: linear-gradient(135deg, #14243a, #304d70); padding-top: 115px; }
+.login-container { width: 420px; max-width: 95%; margin: 0 auto; }
+.login-header { color: white; text-align: center; margin-bottom: 30px; }
+.login-header h1 { font-size: 42px; letter-spacing: 5px; margin-bottom: 10px; }
+.login-header p { font-size: 13px; color: #c4d1e0; }
+.login-box { background: white; padding: 35px; border-radius: 10px; box-shadow: 0 10px 35px rgba(0,0,0,.2); }
+.login-box h2 { font-size: 23px; margin-bottom: 10px; }
+.login-box > p { font-size: 13px; color: #788595; margin-bottom: 28px; }
+#login-form label { display: block; font-size: 14px; font-weight: bold; margin-bottom: 8px; }
+#login-form input { width: 100%; padding: 13px; margin-bottom: 20px; border: 1px solid #cdd5df; border-radius: 5px; font-size: 14px; }
+#login-form input:focus { outline: none; border-color: #3569a4; }
+#login-error { color: #d93636; font-size: 13px; margin-bottom: 10px; }
+#login-form button { width: 100%; padding: 14px; background: #345f96; color: white; border: 0; border-radius: 5px; }
+#login-form button:hover { background: #244875; }
+.login-footer { margin-top: 25px; text-align: center; color: #b3c0d0; font-size: 12px; line-height: 1.7; }
+
+/* 접속 로딩 */
+#loading-page { min-height: 100vh; background: #19283d; color: white; padding-top: 38vh; text-align: center; }
+.loading-container { padding: 25px; }
+#loading-welcome { font-size: 28px; margin-bottom: 22px; }
+#loading-message { font-size: 16px; color: #aabed6; }
+
+/* 관리자 공통 레이아웃 */
+#admin-page { min-height: 100vh; }
+.sidebar { width: 230px; height: 100vh; background: #202a3d; color: white; position: fixed; top: 0; left: 0; }
+.sidebar-logo { padding: 30px 25px; border-bottom: 1px solid #35445a; }
+.sidebar-logo h2 { font-size: 26px; letter-spacing: 3px; }
+.sidebar-logo p { font-size: 11px; color: #9cacc0; margin-top: 5px; }
+.sidebar-menu { padding: 20px 10px; }
+.menu-btn { width: 100%; padding: 15px 20px; margin-bottom: 5px; background: transparent; border: 0; border-radius: 5px; color: #bac7d7; text-align: left; font-size: 14px; }
+.menu-btn:hover { background: #2a3d57; color: white; }
+.menu-btn.active { background: #46659b; color: white; }
+.sidebar-bottom { position: absolute; bottom: 25px; width: 100%; padding: 0 15px; }
+#logout-button { width: 100%; padding: 12px; background: #30425c; color: white; border: 0; border-radius: 5px; }
+#logout-button:hover { background: #b23b3b; }
+.admin-main { margin-left: 230px; min-height: 100vh; }
+.admin-header { background: white; padding: 23px 35px; border-bottom: 1px solid #dce2e9; overflow: hidden; }
+.admin-header h2 { float: left; font-size: 18px; }
+.admin-header p { float: right; color: #687789; font-size: 13px; }
+.content-page { padding: 35px; }
+.page-title { margin-bottom: 30px; }
+.page-title h2 { font-size: 25px; margin-bottom: 8px; }
+.page-title p { color: #7c8998; font-size: 14px; }
+
+/* 대시보드 카드와 업무 안내 */
+.dashboard-cards { overflow: hidden; margin: 0 -10px 30px; }
+.dashboard-card { float: left; width: calc(25% - 20px); margin: 0 10px; background: white; padding: 25px; border: 1px solid #e0e5ec; border-radius: 8px; }
+.dashboard-card h3 { font-size: 14px; color: #788595; margin-bottom: 15px; }
+.dashboard-card p { font-size: 28px; font-weight: bold; color: #273e5c; }
+.dashboard-section, .panel { background: white; padding: 25px; margin-bottom: 25px; border: 1px solid #e0e5ec; border-radius: 8px; }
+.dashboard-section h3, .panel h3 { font-size: 18px; margin-bottom: 20px; }
+.dashboard-section p, .panel p { font-size: 14px; line-height: 1.7; }
+.task-list { padding-left: 20px; margin-top: 15px; }
+.task-list li { padding: 7px 0; font-size: 14px; }
+.notice-table, .data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.notice-table th, .notice-table td, .data-table th, .data-table td { padding: 13px; border-bottom: 1px solid #e6eaf0; text-align: left; }
+.notice-table th, .data-table th { background: #f4f6f9; color: #526174; }
+.table-scroll { overflow-x: auto; }
+.data-table td, .data-table th { white-space: nowrap; }
+.data-table tbody tr:hover { background: #f5f8fc; }
+
+/* 직원 관리, 출입 기록 검색 */
+.search-row { overflow: hidden; margin-bottom: 15px; }
+.search-row input, .search-row select { padding: 12px; border: 1px solid #cdd5df; border-radius: 5px; font-size: 14px; margin-right: 8px; margin-bottom: 8px; background: white; }
+.search-row input { width: 38%; }
+.gray-button { background: #526780; border: 0; border-radius: 5px; color: white; padding: 11px 20px; }
+.gray-button:hover { background: #394b63; }
+.result-count { color: #788595; font-size: 13px !important; }
+.status-active { color: #23834c; font-weight: bold; }
+.status-inactive { color: #b35b34; font-weight: bold; }
+.detail-btn { background: #345f96; border: 0; border-radius: 5px; color: white; padding: 8px 14px; }
+.detail-btn:hover { background: #244875; }
+#employee-detail-content { margin-bottom: 20px; }
+#employee-detail-content p { padding: 10px 0; border-bottom: 1px solid #e6eaf0; }
+.access-suspicious { background: #fff8ed; }
+.warning-panel { background: #fff8ed; padding: 25px; margin-bottom: 25px; border: 1px solid #e8c58d; border-radius: 8px; }
+.warning-panel h3 { color: #975b20; margin-bottom: 15px; }
+.warning-panel p { font-size: 14px; line-height: 1.8; margin-bottom: 20px; }
+
+/* 사내 메신저 */
+.messenger-container { background: white; border: 1px solid #e0e5ec; border-radius: 8px; height: 550px; overflow: hidden; }
+.chat-sidebar { float: left; width: 280px; height: 100%; overflow-y: auto; padding: 20px; border-right: 1px solid #e0e5ec; }
+.chat-sidebar h3 { font-size: 17px; margin-bottom: 20px; }
+#chat-search { width: 100%; padding: 12px; border: 1px solid #cdd5df; border-radius: 5px; margin-bottom: 20px; }
+.chat-item { width: 100%; padding: 15px; margin-bottom: 8px; background: white; border: 1px solid #e0e5ec; border-radius: 5px; text-align: left; }
+.chat-item:hover { background: #f1f5fa; }
+.chat-item.active { background: #e8eff8; border-color: #345f96; }
+.chat-item h4 { font-size: 14px; margin-bottom: 7px; }
+.chat-item p { font-size: 12px; color: #788595; }
+.chat-main { margin-left: 280px; height: 100%; position: relative; }
+.chat-header { padding: 22px; border-bottom: 1px solid #e0e5ec; }
+.chat-header h3 { font-size: 17px; }
+#chat-messages { height: calc(100% - 126px); overflow-y: auto; padding: 25px; background: #fafbfd; }
+.chat-message { margin-bottom: 20px; max-width: 75%; }
+.chat-sender { font-weight: bold; font-size: 13px; margin-bottom: 6px; }
+.chat-time { color: #8995a5; font-size: 11px; margin-bottom: 8px; }
+.chat-text { padding: 14px; background: white; border: 1px solid #e0e5ec; border-radius: 8px; font-size: 14px; line-height: 1.6; }
+.chat-empty { text-align: center; color: #8995a5; margin-top: 50px; }
+.chat-footer { padding: 15px; font-size: 12px; text-align: center; color: #8995a5; border-top: 1px solid #e0e5ec; }
+
+/* 좁은 화면 대응 */
+@media (max-width: 1000px) {
+    .dashboard-card { width: calc(50% - 20px); margin-bottom: 15px; }
+    .search-row input { width: 100%; }
+}
+@media (max-width: 700px) {
+    .sidebar { width: 160px; }
+    .admin-main { margin-left: 160px; }
+    .content-page { padding: 18px; }
+    .dashboard-card { width: calc(100% - 20px); }
+    .chat-sidebar { width: 145px; padding: 10px; }
+    .chat-main { margin-left: 145px; }
+    .admin-header h2, .admin-header p { float: none; }
+}
+
+
+/* ===================================
+   보안 로그 페이지
+=================================== */
+
+/* 검색 영역 */
+.security-search {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.security-search input,
+.security-search select {
+    padding: 12px;
+    border: 1px solid #cdd5df;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.security-search input {
+    flex: 1;
+}
+
+/* 보안 로그 테이블 */
+.security-table-wrap {
+    overflow-x: auto;
+}
+
+.security-table-wrap th,
+.security-table-wrap td {
+    white-space: nowrap;
+}
+
+/* 로그 상세정보 */
+#security-detail {
+    background: #fff8ed;
+    border-color: #e8c58d;
+}
+
+#security-detail-text {
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+/* 좁은 화면 */
+@media (max-width: 800px) {
+    .security-search {
+        flex-direction: column;
+    }
+}
+#security-detail-text {
+    white-space: pre-line;
+}
